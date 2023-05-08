@@ -1,0 +1,7 @@
+timestamps: 1000
+length_scale: 1.0
+speaker_ref_path: /home/xingxing/COMP5214/dataset/esd/0003/Neutral/test/0003_000021.wav
+emotion: Neutraltimestamps: 1000
+length_scale: 1.0
+speaker_ref_path: /home/xingxing/COMP5214/dataset/esd/0003/Neutral/test/0003_000021.wav
+emotion: Neutral
