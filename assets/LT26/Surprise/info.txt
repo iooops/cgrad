@@ -1,7 +1,4 @@
 timestamps: 1000
 length_scale: 1.0
 speaker_ref_path: /home/xingxing/COMP5214/dataset/LibriTTS/train-clean-100/26/495/26_495_000004_000000.wav
-emotion: Surprisetimestamps: 1000
-length_scale: 1.0
-speaker_ref_path: /home/xingxing/COMP5214/dataset/LibriTTS/train-clean-100/26/495/26_495_000004_000000.wav
 emotion: Surprise
