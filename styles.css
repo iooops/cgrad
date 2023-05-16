@@ -33,3 +33,14 @@
 .texts {
     height: 60px;
 }
+
+.intensity {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    width: 100px;
+}

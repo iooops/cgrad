@@ -11,12 +11,12 @@
 			<h1>COMP5214 Project: Multi-label controlled TTS</h1>
 			<p>This demo shows the capability of conditional timbre generation and conditional emotion generation by text.</p>
 			<p>"Seen" means the label/speaker has appeared in the training dataset and "Unseen" means the reverse.</p>
-			<div v-for="j in 3">
+			<div v-for="j in 4">
 				<h3>Orignial Utterance from {{spk_desc_list[j-1]}}: </h3>
 				<audio :src="spk_list[j-1]" controls></audio>
 				<div class="rows">
 					<div class="emos">
-						<div class="emo" v-for="e in emotion_list">{{['Excited', 'Joyful'].includes(e)? e + '(Unseen)': e}}</div>
+						<div class="emo" v-for="e in emotion_list">{{!['Happy', 'Neutral', 'Sad', 'Suprise', 'Angry'].includes(e)? e + '(Unseen)': e}}</div>
 					</div>
 					<div class="cols">
 						<div class="cols">
@@ -30,26 +30,34 @@
 					</div>
 				</div>
 			</div>
+			<div>
+				<h3>Emotion Intensity Control</h3>
+				<div class="intensity" v-for="i in 11">
+					<div class="left">{{((i-1)/10).toFixed(1)}}</div>
+					<div class="right">
+						<audio :src="intensity_list[i-1]" controls></audio>
+					</div>
+				</div>
+			</div>
 		</div>
 		<script>
 			const { createApp } = Vue
-
 			createApp({
 				data() {
 					return {
 						message: 'Hello Vue!',
-						spk_list: ['assets/ESD18/0018_000021.wav', 'assets/ESD03/0003_000021.wav', 'assets/LT26/26_495_000004_000000.wav'],
-						spks: ['ESD03', 'ESD18', 'LT26'],
-						spk_desc_list: ['ESD test set (Seen Speaker)', 'ESD test set (Unseen Speaker)', 'LibriTTS dataset (Unseen Speaker)'],
-						text_list: ['Does the quick brown fox jump over the lazy dog?',
-							'It was said in last year\'s Democratic platform.',
-							'As rich as Peter\'s son in law!'],
-						emotion_list: ['Happy', 'Excited', 'Joyful', 'Neutral', 'Sad', 'Surprise', 'Angry'],
-						audio_list: []
+						spk_list: ['assets/ESD18/0018_000021.wav', 'assets/ESD03/0003_000021.wav', 'assets/ESD10/0010_000021.wav', 'assets/LT26/26_495_000004_000000.wav'],
+						spks: ['ESD18',  'ESD03', 'ESD10', 'LT26'],
+						spk_desc_list: ['ESD test set (Seen Speaker)', 'ESD test set (Unseen Speaker)', 'ESD test set (Unseen Speaker)', 'LibriTTS dataset (Unseen Speaker)'],
+						text_list: ['The football teams give a tea party.',
+							'And what are doves. And what are doves.', 'I though you meant how old are you.'],
+						emotion_list: ['Happy', 'Excited', 'Joyful', "in a happy tone", 'Neutral', 'Sad', 'a bit sad', 'feeling down', 'angry and sad', 'Surprise', 'Angry'],
+						audio_list: [],
+						intensity_list: []
 					}
 				},
 				beforeMount() {
-					for (let j = 0; j <= 2; j++) {
+					for (let j = 0; j <= 3; j++) {
 						this.audio_list.push({})
 						for (const emo of this.emotion_list) {
 							this.audio_list[j][emo] = []
@@ -59,6 +67,8 @@
 						}
 					}
 					console.log(this.audio_list)
+					this.intensity_list = [...Array(11).keys()].map(k => 'assets/ESD18_angry/' + (k/10).toFixed(1) + '/sample_0_500.wav')
+					console.log(this.intensity_list)
 				}
 			}).mount('#app')
 		</script>
