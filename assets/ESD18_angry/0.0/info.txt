@@ -1,0 +1,10 @@
+timestamps: 500
+length_scale: 1.0
+speaker_ref_path: /home/xingxing/COMP5214/dataset/esd/0018/Neutral/test/0018_000021.wav
+emotion: Angrytimestamps: 500
+length_scale: 1.0
+speaker_ref_path: /home/xingxing/COMP5214/dataset/esd/0018/Neutral/test/0018_000021.wav
+emotion: Angrytimestamps: 500
+length_scale: 1.0
+speaker_ref_path: /home/xingxing/COMP5214/dataset/esd/0018/Neutral/test/0018_000021.wav
+emotion: Angry
