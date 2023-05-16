@@ -45,3 +45,12 @@
     width: 100px;
 }
 
+.model_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 60px;
+}
+
+
+

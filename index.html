@@ -11,6 +11,16 @@
 			<h1>COMP5214 Project: Multi-label controlled TTS</h1>
 			<p>This demo shows the capability of conditional timbre generation and conditional emotion generation by text.</p>
 			<p>"Seen" means the label/speaker has appeared in the training dataset and "Unseen" means the reverse.</p>
+			<div>
+				<h3>Comparison with Other Models</h3>
+				<div class="model_list">
+					<div v-for="(m, k) in model_list">
+						<div>{{k}}</div>
+						<audio :src="m" controls></audio>
+					</div>	
+				</div>
+			</div>
+			<h2>Adaption and Emotion Control</h2>
 			<div v-for="j in 4">
 				<h3>Orignial Utterance from {{spk_desc_list[j-1]}}: </h3>
 				<audio :src="spk_list[j-1]" controls></audio>
@@ -53,7 +63,13 @@
 							'And what are doves. And what are doves.', 'I though you meant how old are you.'],
 						emotion_list: ['Happy', 'Excited', 'Joyful', "in a happy tone", 'Neutral', 'Sad', 'a bit sad', 'feeling down', 'angry and sad', 'Surprise', 'Angry'],
 						audio_list: [],
-						intensity_list: []
+						intensity_list: [],
+						model_list: {
+							'Ground Truth': 'assets/overall quality/0018_000022.wav',
+							'MixedEmotion': 'assets/overall quality/MixedEmotion.wav',
+							'EmoDiff': 'assets/overall quality/Emodiff.wav',
+							'Ours': 'assets/overall quality/sample_1_1000.wav'
+						}
 					}
 				},
 				beforeMount() {
